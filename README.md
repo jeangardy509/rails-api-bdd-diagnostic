@@ -2,13 +2,6 @@
 
 # Rails API BDD Diagnostic
 
-Use this template to structure your READMEs for diagnostics.
-
-Be sure to include a recent [`LICENSE`](LICENSE) and Markdown linter
-configuration ([`.remarkrc`](.remarkrc)). Also, include an appropriate
-`.gitignore`; these are usually found in specific technology templates, for
-example [js-template](https://www.github.com/ga-wdi-boston/js-template).
-
 ## Prerequisites
 
 -   [https://github.com/ga-wdi-boston/rails-api-bdd](https://github.com/ga-wdi-boston/rails-api-bdd)
@@ -17,7 +10,7 @@ example [js-template](https://www.github.com/ga-wdi-boston/js-template).
 
 1.  Fork and clone this repository.
 1.  Change into the new directory.
-1.  Install dependencies.
+1.  Bundle install.
 1.  Create and checkout a new branch, named `response`.
 1.  Follow the directions given in [lib/diagnostic.md](lib/diagnostic.md).
 1.  Before the alotted time is up, push to your fork and issue a pull request.
