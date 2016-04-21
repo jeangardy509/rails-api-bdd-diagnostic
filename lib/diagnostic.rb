@@ -27,7 +27,7 @@ RSpec.describe 'Examples API' do
     Example.first
   end
 
-  # your test here
+  # your test(s) here
 end
 
 #
@@ -37,7 +37,7 @@ end
 # GET /examples/:id routes to the examples#show action.
 
 RSpec.describe 'routes for examples' do
-  # your test here
+  # your test(s) here
 end
 
 #
@@ -92,6 +92,10 @@ end
 # and renders an empty response.
 
 RSpec.describe ExamplesController do
+  def example
+    Example.first
+  end
+
   describe 'DELETE destroy' do
     # your test(s) here
   end
