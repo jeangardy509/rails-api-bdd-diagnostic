@@ -12,7 +12,7 @@
 1.  Change into the new directory.
 1.  Bundle install.
 1.  Create and checkout a new branch, named `response`.
-1.  Follow the directions given in [lib/diagnostic.md](lib/diagnostic.md).
+1.  Follow the directions given in [lib/diagnostic.rb](lib/diagnostic.rb).
 1.  Before the alotted time is up, push to your fork and issue a pull request.
 
 Your pull request description should contain a "fist to five" for comfort and
