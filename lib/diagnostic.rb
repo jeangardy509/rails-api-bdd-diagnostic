@@ -4,6 +4,15 @@ require 'rails_helper'
 # The tests you build for this diagnostic are not expected to pass.
 # Merely provide a test for each given scenario.
 
+def examples
+  Example.all
+end
+
+def example
+  Example.first
+end
+
+
 #
 # Question 1
 #
@@ -19,14 +28,6 @@ require 'rails_helper'
 # responds successfully and lists all examples.
 
 RSpec.describe 'Examples API' do
-  def examples
-    Example.all
-  end
-
-  def example
-    Example.first
-  end
-
   # your test(s) here
 end
 
@@ -55,10 +56,6 @@ RSpec.describe ExamplesController do
   end
 
   describe 'POST create' do
-    before(:each) do
-      post :create, example: example_params, format: :json
-    end
-
     # your test(s) here
   end
 end
@@ -77,10 +74,6 @@ RSpec.describe ExamplesController do
   end
 
   describe 'PATCH update' do
-    before(:each) do
-      patch :update, id: example.id, example: example_diff, format: :json
-    end
-
     # your test(s) here
   end
 end
@@ -96,7 +89,7 @@ RSpec.describe ExamplesController do
     Example.first
   end
 
-  describe 'DELETE destroy' do
+at  describe 'DELETE destroy' do
     # your test(s) here
   end
 end
