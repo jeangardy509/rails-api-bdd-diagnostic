@@ -12,7 +12,6 @@ def example
   Example.first
 end
 
-
 #
 # Question 1
 #
@@ -100,17 +99,11 @@ end
 # Test that the Example model has an association with an
 # `other` model. You'll have to build an `association` model
 # on your own.
-#
-# Also, write a test to ensure that your Example
-# model validates the presence of `text` for newly
-# created examples.
 
 RSpec.describe Example do
   describe 'associations' do
     # association method here
 
     # test association with `other` here
-
-    # validates presence of text test here
   end
 end
