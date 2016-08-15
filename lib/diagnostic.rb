@@ -89,7 +89,28 @@ RSpec.describe ExamplesController do
     Example.first
   end
 
-at  describe 'DELETE destroy' do
+  describe 'DELETE destroy' do
     # your test(s) here
+  end
+end
+
+#
+# Question 7
+#
+# Test that the Example model has an association with an
+# `other` model. You'll have to build an `association` model
+# on your own.
+#
+# Also, write a test to ensure that your Example
+# model validates the presence of `text` for newly
+# created examples.
+
+RSpec.describe Example do
+  describe 'associations' do
+    # association method here
+
+    # test association with `other` here
+
+    # validates presence of text test here
   end
 end
