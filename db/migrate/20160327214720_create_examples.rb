@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # An example for user of the template
 class CreateExamples < ActiveRecord::Migration
   def change
