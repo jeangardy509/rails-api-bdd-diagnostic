@@ -18,8 +18,9 @@ end
 #
 # In a Ruby comment, explain Behavior Driven Development, how it is meant to be
 # used, and how it differs from Test Driven Development.
+#
+# BDD tests from the top down and closely follows a user story. Tests can be written before code is written, or after (backfilling the specs). BDD is based on features. Features are driven by user stories and their acceptance criteria. Feature tests drive unit tests, and unit tests drive code. TDD is bottom up, and tests are written before code. TDD drives implementation of code, and refers to the order of red, green refactor: 1. Write the test, 2. Run the test (it should fail), 3. Write the code, 4. Run the test (if it fails go back to step 3), 5. Refactor, 6. Write the next test.
 
-# your answer here
 
 #
 # Question 2
@@ -28,7 +29,26 @@ end
 # responds successfully and lists all examples.
 
 RSpec.describe 'Examples API' do
-  # your test(s) here
+  # As a user, I want to get all articles
+
+  def examples 
+    # could stub Example.all so we don't actually hit db
+    Example.all
+  end
+
+  it 'lists all examples' do
+    get '/examples'
+    
+    # responds successfully
+    expect(response).to be_success 
+  
+    examples_response = JSON.parse(response.body)
+ 
+    # gets correct data
+    expect(response.count).to eq(examples.count)
+    expect(examples_response['examples'].first['title']).to eq(example.title)
+  end
+
 end
 
 #
@@ -38,7 +58,13 @@ end
 # GET /examples/:id routes to the examples#show action.
 
 RSpec.describe 'routes for examples' do
-  # your test(s) here
+  it 'routes GET /examples/:id to the examples#show action' do
+    expect(get('/examples/1')).to route_to(
+      controller: 'examples',
+      action: 'show',
+      id: '1'
+    )
+  end
 end
 
 #
@@ -56,7 +82,18 @@ RSpec.describe ExamplesController do
   end
 
   describe 'POST create' do
-    # your test(s) here
+    before(:each) do
+      post :create, example: example_params, format: :json
+    end
+
+    it 'is successful' do
+      expect(response).to be_success
+    end
+
+    it 'renders a JSON response' do
+      example_response = JSON.parse(response.body)
+      expect(example_response).not_to be_nil
+    end
   end
 end
 
@@ -74,7 +111,18 @@ RSpec.describe ExamplesController do
   end
 
   describe 'PATCH update' do
-    # your test(s) here
+    before(:each) do
+      patch :update, id: example.id, example: example_diff, format: :json
+    end
+
+    it 'is successful' do
+      expect(response).to be_success
+    end
+
+    it 'renders a JSON response' do
+      example_response = JSON.parse(response.body)
+      expect(example_response).not_to be_nil
+    end
   end
 end
 
@@ -90,7 +138,19 @@ RSpec.describe ExamplesController do
   end
 
   describe 'DELETE destroy' do
-    # your test(s) here
+    before(:each) {
+      delete :destroy, id: example.id, format: :json
+    }
+
+    it 'is successful' do
+      expect(response).to be_success
+    end
+
+    it 'returns an empty response body' do
+      # use before(:all) so we only delete once and test response object multiple times?
+      expect(response.body).to be_empty
+    end
+
   end
 end
 
@@ -103,8 +163,14 @@ end
 
 RSpec.describe Example do
   describe 'associations' do
-    # association method here
 
-    # test association with `other` here
+    def association
+      described_class.reflect_on_association(:others)
+    end
+
+    it 'has an association with comments' do
+      expect(association).to_not be_nil
+      expect(association.name).to eq(:comments)
+    end
   end
 end
