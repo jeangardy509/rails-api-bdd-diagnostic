@@ -10,21 +10,37 @@
 
 1.  Fork and clone this repository.
 1.  Change into the new directory.
-1.  Bundle install.
+1.  Install dependencies with `bundle install`
+1.  Create a `.env` for sensitive settings (`touch .env`).
+1.  Generate new `development` and `test` secrets (`bundle exec rake secret`).
+1.  Store them in `.env` with keys `SECRET_KEY_BASE_<DEVELOPMENT|TEST>`
+    respectively.
 1.  Create and checkout a new branch, named `response`.
 1.  Follow the directions given in [lib/diagnostic.rb](lib/diagnostic.rb).
-1.  Before the alotted time is up, push to your fork and issue a pull request.
+1.  Before the allotted time is up, push to your fork and issue a pull request.
 
 Your pull request description should contain a "fist to five" for comfort and
 clarity. Additionally, you should mention the resources you used to help you
-complete this assessment. For example:
+complete this diagnostic. For example:
 
 ```md
 Comfort: 3
 Clarity: 3
 
-I used Google and my class notes to help with this assessment.
+I used Google and my class notes to help with this diagnostic.
 ```
+
+## Tasks
+
+Developers should run these often!
+
+-   `bin/rake routes` lists the endpoints available in your API.
+-   `bin/rake test` runs automated tests.
+-   `bin/rails console` opens a REPL that pre-loads the API.
+-   `bin/rails db` opens your database client and loads the correct database.
+-   `bin/rails server` starts the API.
+-   `scripts/*.sh` run various `curl` commands to test the API. See below.
+
 
 You may wish to refer to ["How do I submit diagnostics?"](https://github.com/ga-wdi-boston/meta/wiki/Diagnostics)
 and other [FAQs](https://github.com/ga-wdi-boston/meta/wiki/) related to
@@ -37,5 +53,6 @@ searching for help online.
 
 ## [License](LICENSE)
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or alternative licensing, please contact legal@ga.co.
+1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
+1.  All software code is licensed under GNU GPLv3. For commercial use or
+    alternative licensing, please contact legal@ga.co.
