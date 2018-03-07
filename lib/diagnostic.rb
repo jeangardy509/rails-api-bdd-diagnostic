@@ -19,8 +19,7 @@ end
 # In a Ruby comment, explain Behavior Driven Development, how it is meant to be
 # used, and how it differs from Test Driven Development.
 
-# your answer here
-
+# I know we've done all of these in class last week and this week. I took notes, and follow along. But I'm still having hard time understanding the concept.
 #
 # Question 2
 #
